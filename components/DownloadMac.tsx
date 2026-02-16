@@ -42,17 +42,17 @@ export default function DownloadMac() {
 
       <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
 
-        <h2 className="text-5xl font-medium mb-6">
+        <h2 className="text-5xl font-medium mb-4">
           Download for Mac
         </h2>
 
-        <p className="text-lg text-white/60 max-w-3xl mx-auto mb-14 leading-relaxed">
+        <p className="text-lg text-white/60 max-w-3xl mx-auto mb-6 leading-relaxed">
           Autonomous AI agents that work 24×7, learn from feedback &
           continuously improve store performance
         </p>
 
         {/* ✅ Terminal command (fixed) */}
-        <div className="flex items-center justify-between bg-[#0c0c0c] border border-white/10 rounded-3xl px-8 py-6 mb-12 font-mono text-sm text-white/80 max-w-3xl mx-auto">
+        <div className="flex items-center justify-between bg-[#262626] border border-white/10 rounded-2xl px-4 py-2 mb-16 font-mono text-sm text-white/60 max-w-xl mx-auto">
 
           <span className="truncate text-left">
             {command}
