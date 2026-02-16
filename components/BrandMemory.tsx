@@ -33,8 +33,21 @@ export default function BrandMemory() {
           Cowork learns what makes your brand yours
         </p>
 
-        {/* Large workspace container */}
-        <div className="bg-[#e9e9e9] rounded-3xl h-[460px] max-w-6xl mx-auto border border-black/5 shadow-sm"></div>
+        {/* Video container with actual aspect ratio */}
+<div className="max-w-6xl mx-auto border border-black/5 shadow-sm rounded-3xl overflow-hidden bg-[#e9e9e9]">
+
+  <div className="w-full aspect-[1920/1080]">
+    <video
+      src="/videos/brand memory.mp4"
+      autoPlay
+      muted
+      loop
+      playsInline
+      className="w-full h-full object-cover"
+    />
+  </div>
+
+</div>
 
       </div>
     </section>
