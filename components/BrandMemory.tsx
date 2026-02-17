@@ -39,6 +39,7 @@ export default function BrandMemory() {
   <div className="w-full aspect-[1920/1080]">
     <video
       src="/videos/brand-memory.mp4"
+      type="video/mp4"
       autoPlay
       muted
       loop
