@@ -29,7 +29,7 @@ export default function HowCoworkRuns() {
   ];
 
   return (
-    <section className="relative bg-[#f6f6f6] py-28 overflow-hidden">
+    <section className="relative bg-[#f6f6f6] py-24 overflow-hidden">
 
       {/* Grid background */}
       <div className="absolute inset-0 opacity-40 pointer-events-none">

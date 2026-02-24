@@ -18,7 +18,7 @@ export default function HowItWorks() {
   ];
 
   return (
-    <section className="relative bg-[#f6f6f6] py-32 overflow-hidden">
+    <section className="relative bg-[#f6f6f6] py-24 overflow-hidden">
 
       {/* Grid background */}
       <div className="absolute inset-0 opacity-40 pointer-events-none">
@@ -37,7 +37,7 @@ export default function HowItWorks() {
       <div className="relative z-10 max-w-7xl mx-auto px-6">
 
         {/* Heading */}
-        <div className="text-center mb-20">
+        <div className="text-center mb-12">
           <h2 className="text-5xl font-medium mb-5">
             How It Works
           </h2>
@@ -49,7 +49,7 @@ export default function HowItWorks() {
         </div>
 
         {/* Two-column layout */}
-        <div className="grid md:grid-cols-2 gap-12 mb-14">
+        <div className="grid md:grid-cols-2 gap-5 mb-5">
 
           {/* LEFT: mac window */}
           <div className="bg-[#FFFFFF] border border-black/5 rounded-3xl overflow-hidden">
@@ -77,7 +77,7 @@ export default function HowItWorks() {
           </div>
 
           {/* RIGHT: risk cards */}
-          <div className="flex flex-col gap-8">
+          <div className="flex flex-col gap-5">
 
             {risks.map((risk, i) => (
               <div

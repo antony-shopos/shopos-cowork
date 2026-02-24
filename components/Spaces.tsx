@@ -30,7 +30,7 @@ export default function Spaces() {
   ];
 
   return (
-    <section className="relative bg-[#f6f6f6] py-28 overflow-hidden">
+    <section className="relative bg-[#ffffff] py-24 overflow-hidden">
 
       {/* Grid */}
       <div className="absolute inset-0 opacity-40 pointer-events-none">

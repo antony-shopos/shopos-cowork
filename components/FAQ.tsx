@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0)
@@ -8,85 +8,201 @@ export default function FAQ() {
   const faqs = [
     {
       question: "What is ShopOS Cowork?",
-      answer: "A desktop AI assistant built for brands. It connects to your store, learns your voice, and does actual work—research, copywriting, image generation, catalog updates."
+      answer:
+        "A desktop AI assistant built for brands. It connects to your store, learns your voice, and does actual work—research, copywriting, image generation, catalog updates."
     },
-    {
-      question: "Is it open source?",
-      answer: "Parts of the system are open source. The core AI workflows and integrations are proprietary, but we're committed to transparency and will be releasing components of the system over time."
-    },
-    {
-      question: "Does my data stay private?",
-      answer: "Yes. Cowork runs on your Mac. Your store data stays on your computer unless you explicitly choose to sync or share it. We don't upload your data to the cloud without your permission."
-    },
-    {
-      question: "What models does it use?",
-      answer: "Cowork uses a combination of state-of-the-art language models and custom-trained models specifically for commerce tasks. The system is model-agnostic and we continuously update to use the best available models."
-    },
-    {
-      question: "Can it actually change things in my store?",
-      answer: "Yes, but only with your permission. Cowork asks before making any changes that could impact your store—price updates, publishing products, bulk edits. You always have final approval."
-    },
-    {
-      question: "What's the difference between this and ChatGPT?",
-      answer: "ChatGPT is a conversational AI. Cowork is an autonomous agent system that connects to your store, learns your brand, and actually executes tasks. It's built specifically for commerce, not general conversation."
-    },
-    {
-      question: "What if I'm not technical?",
-      answer: "You don't need to be. Cowork is designed for merchants, not developers. You talk to it in natural language, and it handles the technical work. No coding required."
-    },
-    {
-      question: "Does it work with platforms other than Shopify?",
-      answer: "Yes. Cowork works with Shopify, WooCommerce, BigCommerce, and any platform with an API. We're adding more integrations regularly, including Amazon Seller Central."
-    },
-    {
-      question: "Who built this?",
-      answer: "Cowork is built by ShopOS, an AI-native operating system for ecommerce. We're a team of engineers, designers, and merchants who believe AI should do real work, not just generate content."
-    }
+    { question: "Is it open source?", answer: "Parts of the system are open source." },
+    { question: "Does my data stay private?", answer: "Yes. Cowork runs locally on your Mac." },
+    { question: "What models does it use?", answer: "A combination of state-of-the-art models." },
+    { question: "Can it actually change things in my store?", answer: "Yes, with your permission." },
+    { question: "What's the difference between this and ChatGPT?", answer: "Cowork executes store-connected tasks." },
+    { question: "What if I'm not technical?", answer: "No coding required." },
+    { question: "Does it work with platforms other than Shopify?", answer: "Yes, multiple integrations." },
+    { question: "Who built this?", answer: "Built by ShopOS." }
   ]
 
   return (
-    <section className="py-20 px-6 bg-white">
-      <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-display font-bold mb-4">
+    <section className="relative bg-[#f6f6f6] py-32 overflow-hidden">
+
+      {/* Grid */}
+      <div className="absolute inset-0 opacity-40 pointer-events-none">
+        <div
+          className="w-full h-full"
+          style={{
+            backgroundImage: `
+              linear-gradient(to right, rgba(0,0,0,0.06) 1px, transparent 1px),
+              linear-gradient(to bottom, rgba(0,0,0,0.06) 1px, transparent 1px)
+            `,
+            backgroundSize: "80px 80px",
+          }}
+        />
+      </div>
+
+      <div className="relative z-10 max-w-[900px] mx-auto px-6">
+
+        {/* Heading + Subtitle */}
+        <div style={{ textAlign: "center", marginBottom: "64px" }}>
+          <h2
+            style={{
+              fontFamily: "Space Grotesk",
+              fontWeight: 600,
+              fontSize: "40px",
+              lineHeight: "48px",
+              color: "#0A0A0A",
+              marginBottom: "12px"
+            }}
+          >
             Frequently asked questions
           </h2>
-          <p className="text-xl text-gray-600">
+
+          <p
+            style={{
+              fontFamily: "Inter",
+              fontWeight: 400,
+              fontSize: "18px",
+              lineHeight: "28px",
+              color: "#737373"
+            }}
+          >
             Everything you need to know about the product and billing.
           </p>
         </div>
 
-        <div className="space-y-4">
-          {faqs.map((faq, index) => (
-            <div 
-              key={index}
-              className="border border-gray-200 rounded-2xl overflow-hidden transition-all"
-            >
-              <button
-                className="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-gray-50 transition-colors"
-                onClick={() => setOpenIndex(openIndex === index ? null : index)}
+        {/* Accordion */}
+        <div>
+
+          {faqs.map((faq, index) => {
+            const isOpen = openIndex === index
+
+            const contentRef = useRef<HTMLDivElement>(null)
+            const [height, setHeight] = useState(0)
+
+            useEffect(() => {
+              if (contentRef.current) {
+                setHeight(contentRef.current.scrollHeight)
+              }
+            }, [isOpen])
+
+            return (
+              <div
+                key={index}
+                style={{
+                  borderBottom:
+                    index !== faqs.length - 1
+                      ? "1px solid #E5E5E5"
+                      : "none"
+                }}
               >
-                <span className="font-display font-semibold text-lg pr-8">
-                  {faq.question}
-                </span>
-                <svg 
-                  className={`w-6 h-6 flex-shrink-0 transition-transform ${openIndex === index ? 'rotate-180' : ''}`}
-                  fill="none" 
-                  stroke="currentColor" 
-                  viewBox="0 0 24 24"
+
+                {/* Question Row */}
+                <button
+                  onClick={() => setOpenIndex(isOpen ? null : index)}
+                  style={{
+                    width: "100%",
+                    paddingTop: "24px",
+                    paddingBottom: isOpen ? "4px" : "24px",
+                    display: "flex",
+                    alignItems: "flex-start",
+                    justifyContent: "space-between",
+                    textAlign: "left",
+                    background: "transparent",
+                    border: "none",
+                    cursor: "pointer"
+                  }}
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-              
-              {openIndex === index && (
-                <div className="px-6 pb-5 text-gray-600 leading-relaxed animate-slide-up">
-                  {faq.answer}
+                  <span
+                    style={{
+                      fontFamily: "Inter",
+                      fontWeight: 600,
+                      fontSize: "16px",
+                      lineHeight: "24px",
+                      color: "#0A0A0A"
+                    }}
+                  >
+                    {faq.question}
+                  </span>
+
+                  {/* Icon */}
+                  <div
+                    style={{
+                      width: "20px",
+                      height: "20px",
+                      borderRadius: "9999px",
+                      border: "2px solid #A3A3A3",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center"
+                    }}
+                  >
+                    {isOpen ? (
+                      <div
+                        style={{
+                          width: "10px",
+                          height: "2px",
+                          backgroundColor: "#A3A3A3"
+                        }}
+                      />
+                    ) : (
+                      <div style={{ position: "relative", width: "10px", height: "10px" }}>
+                        <div
+                          style={{
+                            position: "absolute",
+                            top: "50%",
+                            left: 0,
+                            width: "100%",
+                            height: "2px",
+                            backgroundColor: "#A3A3A3",
+                            transform: "translateY(-50%)"
+                          }}
+                        />
+                        <div
+                          style={{
+                            position: "absolute",
+                            left: "50%",
+                            top: 0,
+                            width: "2px",
+                            height: "100%",
+                            backgroundColor: "#A3A3A3",
+                            transform: "translateX(-50%)"
+                          }}
+                        />
+                      </div>
+                    )}
+                  </div>
+                </button>
+
+                {/* Smooth Animated Answer */}
+                <div
+                  style={{
+                    height: isOpen ? `${height}px` : "0px",
+                    overflow: "hidden",
+                    transition: "height 300ms cubic-bezier(0.4, 0, 0.2, 1)"
+                  }}
+                >
+                  <div ref={contentRef}>
+                    <p
+                      style={{
+                        paddingTop: "4px",
+                        paddingBottom: "24px",
+                        paddingRight: "48px",
+                        fontFamily: "Inter",
+                        fontWeight: 400,
+                        fontSize: "16px",
+                        lineHeight: "24px",
+                        color: "#525252"
+                      }}
+                    >
+                      {faq.answer}
+                    </p>
+                  </div>
                 </div>
-              )}
-            </div>
-          ))}
+
+              </div>
+            )
+          })}
+
         </div>
+
       </div>
     </section>
   )

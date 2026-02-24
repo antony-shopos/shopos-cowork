@@ -10,6 +10,38 @@
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: 'Newsreader-Medium';
+  src: url('/fonts/Newsreader-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Newsreader-MediumItalic';
+  src: url('/fonts/Newsreader-MediumItalic.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Newsreader-RegularItalic';
+  src: url('/fonts/Newsreader-RegularItalic.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Newsreader14pt-MediumItalic';
+  src: url('/fonts/Newsreader14pt-MediumItalic.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
 html {
   scroll-behavior: smooth;
 }

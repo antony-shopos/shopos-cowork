@@ -81,44 +81,96 @@ export default function DownloadMac() {
 
         </div>
 
-      {/* Download button */}
-<div className="flex justify-center mb-6">
-  <button
-    className="
-      border border-white/100
-      pl-5 pr-7 py-2
-      rounded-xl
-      font-medium
-      bg-[#0A0A0A]
-      hover:bg-[#1a1a1a]/90
-      transition
-      flex items-center gap-0
-    "
-  >
-    {/* Mac icon */}
-    <img
-      src="/images/download mac/mac-icon.png"
-      alt="Mac"
-      className="h-12 w-auto opacity-100"
-    />
+      {/* CTA Block */}
+        <div className="flex flex-col items-center">
+          {/* Mac Button */}
+          <button
+            onMouseEnter={e => {
+              e.currentTarget.style.backgroundColor = 'rgba(10,10,10,0.8)'
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.backgroundColor = '#0A0A0A'
+            }}
+            style={{
+              backgroundColor: '#0A0A0A',
+              border: '1px solid #FFFFFF',
+              borderRadius: '12px',
+              padding: '8px 20px',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '12px',
+              cursor: 'pointer',
+              transition: 'background-color 200ms ease, transform 150ms ease',
+            }}
+          >
+            {/* Mac Icon */}
+            <img
+              src="/images/download mac/mac-icon.png"
+              alt="Mac"
+              style={{
+                width: '26.05px',
+                height: '32px',
+              }}
+            />
 
-    {/* Text */}
-    <div className="text-left leading-tight">
-      <span className="block text-sm text-white/70">
-        Download for
-      </span>
-      <span className="block text-base font-medium">
-        Mac OS
-      </span>
-    </div>
-  </button>
-</div>
+            {/* Text Stack */}
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'flex-start',
+              }}
+            >
+              <span
+                style={{
+                  fontFamily: 'Inter',
+                  fontWeight: 400,
+                  fontSize: '12px',
+                  lineHeight: '18px',
+                  color: '#FAFAFA',
+                }}
+              >
+                Download for
+              </span>
 
+              <span
+                style={{
+                  fontFamily: 'Inter',
+                  fontWeight: 500,
+                  fontSize: '28px',
+                  lineHeight: '36px',
+                  color: '#FAFAFA',
+                }}
+              >
+                Mac OS
+              </span>
+            </div>
+          </button>
 
-
-        <button className="text-white/100 hover:text-white/80 transition">
-          Read research
-        </button>
+          {/* Read Research */}
+          <button
+            onMouseEnter={e => {
+              e.currentTarget.style.opacity = '0.7'
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.opacity = '1'
+            }}
+            style={{
+              marginTop: '20px',
+              fontFamily: 'Inter',
+              fontWeight: 500,
+              fontSize: '14px',
+              lineHeight: '150%',
+              color: '#FFFFFF',
+              background: 'transparent',
+              border: 'none',
+              cursor: 'pointer',
+              transition: "opacity 200ms ease",
+            }}
+          >
+            Read research
+          </button>
+        </div>
 
       </div>
     </section>

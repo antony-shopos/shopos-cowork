@@ -1,59 +1,147 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
+import { useState } from "react";
 
 export default function Navbar() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [open, setOpen] = useState(false);
+
+  const menuItems = ["Products", "How it Works", "Vision", "Blog", "Github"];
 
   return (
-    <nav className="fixed top-0 w-full bg-white/90 backdrop-blur-md z-50 border-b border-gray-100">
-      <div className="max-w-7xl mx-auto px-6 py-4">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-12">
-            <div className="text-2xl font-display font-bold">Cowork</div>
-            
-            <div className="hidden md:flex items-center space-x-8">
-              <a href="#" className="text-sm text-gray-700 hover:text-black transition-colors">Products</a>
-              <a href="#how-it-works" className="text-sm text-gray-700 hover:text-black transition-colors">How it Works</a>
-              <a href="#" className="text-sm text-gray-700 hover:text-black transition-colors">Vision</a>
-              <a href="#" className="text-sm text-gray-700 hover:text-black transition-colors">Blog</a>
-              <a href="#" className="text-sm text-gray-700 hover:text-black transition-colors">Github</a>
-            </div>
-          </div>
+    <header className="w-full bg-[#F6F6F6] border-b border-black/5 relative z-50">
+      
+      {/* TOP BAR */}
+      <div className="max-w-[1440px] mx-auto px-5 md:px-12 lg:px-24 py-5 flex items-center justify-between">
 
-          <div className="flex items-center space-x-4">
-            <button className="hidden md:block px-6 py-2.5 bg-black text-white text-sm font-medium rounded-full hover:bg-gray-800 transition-all">
-              Download
-            </button>
-            
-            <button 
-              className="md:hidden"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                {isMenuOpen ? (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                ) : (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                )}
-              </svg>
-            </button>
-          </div>
+        {/* LEFT CLUSTER */}
+        <div className="flex items-center gap-8">
+
+          {/* LOGO */}
+          <img
+            src="/images/logo/shopos-cowork-logo.png"
+            alt="ShopOS Cowork"
+            style={{
+              width: "82.73px",
+              height: "42.31px",
+            }}
+          />
+
+          {/* DESKTOP NAV */}
+          <nav className="hidden md:flex items-center gap-3">
+            {menuItems.map((item) => (
+              <a
+                key={item}
+                className="transition-opacity"
+                style={{
+                  fontFamily: "Inter",
+                  fontWeight: 400,
+                  fontSize: "12px",
+                  lineHeight: "18px",
+                  padding: "4px 6px",
+                  color: "#525252",
+                  cursor: "pointer",
+                }}
+                onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.8")}
+                onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+              >
+                {item}
+              </a>
+            ))}
+          </nav>
         </div>
 
-        {isMenuOpen && (
-          <div className="md:hidden mt-4 pb-4 space-y-3 animate-slide-up">
-            <a href="#" className="block text-sm text-gray-700 hover:text-black">Products</a>
-            <a href="#how-it-works" className="block text-sm text-gray-700 hover:text-black">How it Works</a>
-            <a href="#" className="block text-sm text-gray-700 hover:text-black">Vision</a>
-            <a href="#" className="block text-sm text-gray-700 hover:text-black">Blog</a>
-            <a href="#" className="block text-sm text-gray-700 hover:text-black">Github</a>
-            <button className="w-full px-6 py-2.5 bg-black text-white text-sm font-medium rounded-full mt-4">
+        {/* RIGHT SIDE */}
+        <div className="flex items-center">
+
+          {/* DESKTOP DOWNLOAD */}
+          <div className="hidden md:block">
+            <button
+              className="flex items-center gap-3 transition-opacity"
+              style={{
+                backgroundColor: "#0A0A0A",
+                color: "#FFFFFF",
+                padding: "10px 20px",
+                borderRadius: "999px",
+                fontFamily: "Inter",
+                fontWeight: 400,
+                fontSize: "12px",
+                lineHeight: "18px",
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.85")}
+              onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+            >
               Download
+              <div
+                style={{
+                  width: "14px",
+                  height: "14px",
+                  border: "1px dashed #FFFFFF",
+                  borderRadius: "3px",
+                }}
+              />
             </button>
           </div>
-        )}
+
+          {/* MOBILE HAMBURGER */}
+          <button
+            className="md:hidden ml-4"
+            onClick={() => setOpen(!open)}
+          >
+            {open ? (
+              <span style={{ fontSize: "24px" }}>✕</span>
+            ) : (
+              <span style={{ fontSize: "24px" }}>☰</span>
+            )}
+          </button>
+
+        </div>
       </div>
-    </nav>
-  )
+
+      {/* MOBILE FULLSCREEN MENU */}
+      {/* MOBILE FULLSCREEN MENU */}
+<div
+  className={`fixed left-0 right-0 bottom-0 top-[72px] bg-[#F6F6F6] transition-transform duration-300 ease-in-out ${
+    open ? "translate-x-0" : "translate-x-full"
+  } md:hidden z-40`}
+>
+  <div className="pt-12 px-6">
+
+    <div className="flex flex-col gap-8 text-left">
+      {menuItems.map((item) => (
+        <a
+          key={item}
+          className="transition-opacity"
+          style={{
+            fontFamily: "Inter",
+            fontWeight: 400,
+            fontSize: "20px",
+            lineHeight: "30px",
+            color: "#525252",
+          }}
+          onClick={() => setOpen(false)}
+        >
+          {item}
+        </a>
+      ))}
+
+      <button
+        className="mt-10 w-full"
+        style={{
+          backgroundColor: "#0A0A0A",
+          color: "#FFFFFF",
+          padding: "16px 20px",
+          borderRadius: "999px",
+          fontFamily: "Inter",
+          fontSize: "16px",
+        }}
+      >
+        Download
+      </button>
+    </div>
+
+  </div>
+</div>
+
+    </header>
+  );
 }
