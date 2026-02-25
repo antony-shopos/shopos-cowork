@@ -1,11 +1,12 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link"
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
-  const menuItems = ["Products", "How it Works", "Vision", "Blog", "Github"];
+  const menuItems = ["Products", "Case Studies", "Resources", "Pricing"];
 
   return (
     <header className="w-full bg-[] border-b border-black/5 relative z-50">
@@ -17,6 +18,7 @@ export default function Navbar() {
         <div className="flex items-center gap-8">
 
           {/* LOGO */}
+          <Link href="/">
           <img
             src="/images/logo/shopos-logo.png"
             alt="ShopOS"
@@ -25,6 +27,7 @@ export default function Navbar() {
               height: "28px",
             }}
           />
+          </Link>
 
           {/* DESKTOP NAV */}
           <nav className="hidden md:flex items-center gap-3">

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link"
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -17,6 +18,7 @@ export default function Navbar() {
         <div className="flex items-center gap-8">
 
           {/* LOGO */}
+          <Link href="/cowork">
           <img
             src="/images/logo/shopos-cowork-logo.png"
             alt="ShopOS Cowork"
@@ -25,6 +27,7 @@ export default function Navbar() {
               height: "42.31px",
             }}
           />
+          </Link>
 
           {/* DESKTOP NAV */}
           <nav className="hidden md:flex items-center gap-3">
