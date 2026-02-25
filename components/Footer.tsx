@@ -1,17 +1,16 @@
 'use client'
 
-import Link from "next/link";
+import Link from 'next/link'
 
 export default function Footer() {
   return (
     <section className="overflow-hidden bg-white">
-
+      {/* Bottom dashed line aligned to layout */}
+      <div className="border-t border-dashed border-[#D4D4D4]" />
       {/* HARD LOCK AT 1440PX */}
       <div className="max-w-[1460px] mx-auto w-full">
-
         {/* 3 Column Layout */}
         <div className="grid grid-cols-[20px_1fr_20px] md:grid-cols-[120px_1fr_120px] lg:grid-cols-[208px_1fr_208px]">
-
           {/* LEFT DECOR */}
           <div className="relative">
             <img
@@ -30,10 +29,8 @@ export default function Footer() {
             }}
           >
             <div className="px-4 sm:px-8 lg:px-3">
-
               {/* TOP AREA */}
               <div className="flex flex-col lg:flex-row mb-16 lg:mb-24">
-
                 {/* LEFT BLOCK */}
                 <div className="w-full lg:w-1/2 lg:pr-16 mb-12 lg:mb-0">
                   <img
@@ -51,16 +48,23 @@ export default function Footer() {
 
                 {/* RIGHT BLOCK */}
                 <div className="w-full lg:w-1/2 grid grid-cols-2 sm:grid-cols-3 gap-8 lg:gap-16">
-
                   <div>
                     <h4 className="text-[#262626] font-medium mb-4">Products</h4>
                     <ul className="space-y-3 text-[14px] text-[#525252]">
                       <li>Use Cases</li>
                       <li>Spaces</li>
-                      <li>Loops</li>
+                      <li>
+                        <Link href="/loops" className="hover:opacity-70 transition">
+                          Loops
+                        </Link>
+                      </li>
                       <li>Refine</li>
                       <li>Files</li>
-                      <li>Brand Memory</li>
+                      <li>
+                        <Link href="/brand-memory" className="hover:opacity-70 transition">
+                          Brand Memory
+                        </Link>
+                      </li>
                       <li>
                         <Link href="/cowork" className="hover:opacity-70 transition">
                           Cowork
@@ -88,7 +92,6 @@ export default function Footer() {
                       <li>About Us</li>
                     </ul>
                   </div>
-
                 </div>
               </div>
 
@@ -125,9 +128,7 @@ export default function Footer() {
 
               {/* AI SUMMARY */}
               <div className="text-center">
-                <p className="text-[14px] text-[#262626] mb-4">
-                  Request an AI summary of ShopOS
-                </p>
+                <p className="text-[14px] text-[#262626] mb-4">Request an AI summary of ShopOS</p>
 
                 <div className="flex justify-center gap-4 items-center flex-wrap">
                   <img src="/images/footer/claude.png" className="h-6" alt="Claude" />
@@ -137,7 +138,6 @@ export default function Footer() {
                   <img src="/images/footer/grok.png" className="h-6" alt="Grok" />
                 </div>
               </div>
-
             </div>
           </div>
 
@@ -149,7 +149,6 @@ export default function Footer() {
               className="w-full h-full object-cover object-left"
             />
           </div>
-
         </div>
       </div>
     </section>

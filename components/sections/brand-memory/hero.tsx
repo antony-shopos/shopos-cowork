@@ -1,22 +1,17 @@
-import SectionLayout from "@/components/SectionLayout"
+import SectionLayout from '@/components/SectionLayout'
 
-export default function ShoposWebHero() {
+export default function ShoposBrandMemoryHero() {
   return (
-    <SectionLayout
-      className="bg-[#FAFAFA] relative"
-      borderClass="border-[#E5E5E5]"
-    >
+    <SectionLayout className="bg-[#FAFAFA] relative" borderClass="border-[#E5E5E5]">
       <div className="relative py-16 md:py-24 px-6 md:px-12 lg:px-16 overflow-hidden">
-
         {/* Side Gradient Fades INSIDE locked container */}
         <div className="pointer-events-none absolute left-0 top-0 h-full w-16 bg-gradient-to-r from-[#FAFAFA] to-transparent" />
         <div className="pointer-events-none absolute right-0 top-0 h-full w-16 bg-gradient-to-l from-[#FAFAFA] to-transparent" />
 
         <div className="relative text-center">
-
           {/* Top Pill */}
           <div className="inline-flex items-center px-3 py-1 rounded-full border border-black/10 bg-white text-[14px] text-[#262626] font-medium mb-6">
-            ShopOS Web
+            Brand Memory
           </div>
 
           {/* Heading */}
@@ -31,7 +26,8 @@ export default function ShoposWebHero() {
               marginBottom: '8px',
             }}
           >
-            Your creative team, always on
+            Your brand DNA, <br className="hidden md:block" />
+            machine-readable
           </h1>
 
           {/* Description */}
@@ -43,19 +39,13 @@ export default function ShoposWebHero() {
               letterSpacing: '-0.02em',
               lineHeight: '28px',
               color: '#525252',
-              maxWidth: '654px',
-              margin: '0 auto 32px auto',
+              maxWidth: '516px',
+              margin: '0 auto 24px auto',
             }}
           >
-            100+ AI workflows built for commerce. Product photos. Ad creatives.
-            Catalog copy. Video clips. Social content. Your AI teammates handle
-            production. You handle strategy.
+            Static identity that everything references. Colors, fonts, logos, voice guidelines.
+            Upload once. Used everywhere.
           </p>
-
-          {/* CTA */}
-          <button className="bg-black text-white px-7 py-3.5 rounded-full text-[15px] font-medium transition hover:opacity-90 mb-8">
-            Try ShopOS Web Free
-          </button>
         </div>
 
         {/* Preview Block */}
@@ -63,7 +53,6 @@ export default function ShoposWebHero() {
 
         {/* Feature Cards */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
-
           {/* Card 1 */}
           <div className="bg-[#FFFFFF] rounded-2xl p-6">
             <div className="w-10 h-10 mb-6 bg-white border border-black/10 rounded-xl flex items-center justify-center">
@@ -73,12 +62,10 @@ export default function ShoposWebHero() {
                 className="w-[24px] h-[24px] object-contain"
               />
             </div>
-            <h3 className="font-semibold text-[#0A0A0A] mb-3">
-              Fully encrypted
-            </h3>
+            <h3 className="font-semibold text-[#0A0A0A] mb-3">Upload</h3>
             <p className="text-[#525252] text-[14px] leading-[22px]">
-              Everything in ShopOS is encrypted in transit (SSL) and at-rest
-              (AES-256). Your brand data stays protected.
+              Complete onboarding in 15 minutes. Essentials walks through 6 spaces from logos to
+              photography style.
             </p>
           </div>
 
@@ -91,12 +78,10 @@ export default function ShoposWebHero() {
                 className="w-[24px] h-[24px] object-contain"
               />
             </div>
-            <h3 className="font-semibold text-[#0A0A0A] mb-3">
-              Multi-brand workspaces
-            </h3>
+            <h3 className="font-semibold text-[#0A0A0A] mb-3">Reference</h3>
             <p className="text-[#525252] text-[14px] leading-[22px]">
-              Manage 50 brands from one dashboard. Agencies and holding
-              companies can switch contexts without logging out.
+              Every output checks Memory first. Creating a photo? Memory provides approved colors
+              and logo rules.
             </p>
           </div>
 
@@ -109,17 +94,16 @@ export default function ShoposWebHero() {
                 className="w-[24px] h-[27.5px] object-contain"
               />
             </div>
-            <h3 className="font-semibold text-[#0A0A0A] mb-3">
-              Shopify sync
-            </h3>
+            <h3 className="font-semibold text-[#0A0A0A] mb-3">Update</h3>
             <p className="text-[#525252] text-[14px] leading-[22px]">
-              Products, inventory, orders auto-synced. Generate content for your
-              actual catalog, always up to date.
+              Single source of truth. Rebrand happening? Update once, and every future output
+              follows suit.
             </p>
           </div>
-
         </div>
       </div>
+      {/* Bottom dashed line aligned to layout */}
+      <div className="border-b border-dashed border-[#D4D4D4]" />
     </SectionLayout>
   )
 }

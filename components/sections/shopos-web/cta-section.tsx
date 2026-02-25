@@ -4,7 +4,7 @@ export default function CtaSection() {
   return (
     <SectionLayout className="bg-[#FAFAFA]" borderClass="border-[#E5E5E5]">
 
-      <div className="relative py-24 px-6 md:px-12 lg:px-16 overflow-hidden">
+      <div className="relative py-16 md:py-24 px-6 md:px-12 lg:px-16 overflow-hidden">
 
         {/* Background inside locked container */}
         <div
@@ -40,9 +40,6 @@ export default function CtaSection() {
         </div>
 
       </div>
-
-      {/* Bottom dashed line aligned to layout */}
-      <div className="border-b border-dashed border-[#E5E5E5]" />
 
     </SectionLayout>
   )

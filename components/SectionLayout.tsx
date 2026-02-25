@@ -1,7 +1,7 @@
 export default function SectionLayout({
   children,
   className = "",
-  borderClass = "border-[#E5E5E5]",
+  borderClass = "border-[#D4D4D4]",
 }: {
   children: React.ReactNode
   className?: string

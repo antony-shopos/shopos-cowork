@@ -66,9 +66,9 @@ export default function Navbar() {
                 padding: "10px 20px",
                 borderRadius: "999px",
                 fontFamily: "Inter",
-                fontWeight: 400,
-                fontSize: "12px",
-                lineHeight: "18px",
+                fontWeight: 500,
+                fontSize: "14px",
+                lineHeight: "22px",
               }}
               onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.85")}
               onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}

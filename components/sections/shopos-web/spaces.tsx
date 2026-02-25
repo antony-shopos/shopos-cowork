@@ -70,7 +70,7 @@ export default function SpacesSection() {
       borderClass="border-[#D4D4D4]"
     >
 
-      <div className="px-6 md:px-12 lg:px-16 py-24">
+      <div className="px-6 md:px-12 lg:px-16 py-16 md:py-24">
 
         {/* Heading */}
         <h2
