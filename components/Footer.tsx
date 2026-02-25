@@ -58,8 +58,8 @@ export default function Footer() {
                           Loops
                         </Link>
                       </li>
-                      <li>Refine</li>
-                      <li>Files</li>
+                      <li><Link href="/refine" className="hover:opacity-70 transition">Refine</Link></li>
+                      <li><Link href="/files" className="hover:opacity-70 transition">Files</Link></li>
                       <li>
                         <Link href="/brand-memory" className="hover:opacity-70 transition">
                           Brand Memory
@@ -118,11 +118,11 @@ export default function Footer() {
                 </p>
 
                 <div className="flex gap-6 items-center">
-                  <img src="/images/footer/XLogo.svg" className="h-5" alt="X" />
-                  <img src="/images/footer/InstagramLogo.svg" className="h-5" alt="Instagram" />
-                  <img src="/images/footer/LinkedinLogo.svg" className="h-5" alt="LinkedIn" />
-                  <img src="/images/footer/Newspaper.svg" className="h-5" alt="Press" />
-                  <img src="/images/footer/BehanceLogo.svg" className="h-5" alt="Behance" />
+                  <img src="/images/footer/XLogo.svg" className="h-7" alt="X" />
+                  <img src="/images/footer/InstagramLogo.svg" className="h-7" alt="Instagram" />
+                  <img src="/images/footer/LinkedinLogo.svg" className="h-7" alt="LinkedIn" />
+                  <img src="/images/footer/Newspaper.svg" className="h-7" alt="Press" />
+                  <img src="/images/footer/BehanceLogo.svg" className="h-7" alt="Behance" />
                 </div>
               </div>
 
@@ -131,11 +131,11 @@ export default function Footer() {
                 <p className="text-[14px] text-[#262626] mb-4">Request an AI summary of ShopOS</p>
 
                 <div className="flex justify-center gap-4 items-center flex-wrap">
-                  <img src="/images/footer/claude.png" className="h-6" alt="Claude" />
-                  <img src="/images/footer/perplexity.png" className="h-6" alt="Perplexity" />
-                  <img src="/images/footer/chatgpt.png" className="h-6" alt="ChatGPT" />
-                  <img src="/images/footer/gemini.png" className="h-6" alt="Gemini" />
-                  <img src="/images/footer/grok.png" className="h-6" alt="Grok" />
+                  <img src="/images/footer/claude.png" className="h-8" alt="Claude" />
+                  <img src="/images/footer/perplexity.png" className="h-8" alt="Perplexity" />
+                  <img src="/images/footer/chatgpt.png" className="h-8" alt="ChatGPT" />
+                  <img src="/images/footer/gemini.png" className="h-8" alt="Gemini" />
+                  <img src="/images/footer/grok.png" className="h-8" alt="Grok" />
                 </div>
               </div>
             </div>
