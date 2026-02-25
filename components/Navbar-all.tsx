@@ -1,93 +1,170 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 
-export default function Navbar() {
-  const [open, setOpen] = useState(false)
+function DropdownItem({
+  title,
+  desc,
+  icon,
+  href,
+  onClick,
+}: {
+  title: string
+  desc: string
+  icon: string
+  href: string
+  onClick?: () => void
+}) {
+  return (
+    <Link
+      href={href}
+      onClick={onClick}
+      className="flex items-start gap-[12px] px-[8px] py-[12px] rounded-[8px] hover:bg-[#F5F5F5] transition-colors"
+    >
+      <div className="w-10 h-10 rounded-[10px] border border-black/10 flex items-center justify-center bg-white">
+        <img src={icon} alt={title} className="w-5 h-5 object-contain" />
+      </div>
 
-  const menuItems = ['Products', 'Case Studies', 'Resources', 'Pricing']
+      <div className="flex flex-col gap-[8px]">
+        <h4 className="text-[14px] font-medium text-[#0A0A0A]">{title}</h4>
+        <p className="text-[14px] text-[#525252]">{desc}</p>
+      </div>
+    </Link>
+  )
+}
+
+export default function Navbar() {
+  const [desktopOpen, setDesktopOpen] = useState(false)
+  const [mobileOpen, setMobileOpen] = useState(false)
+  const [mobileProductsOpen, setMobileProductsOpen] = useState(false)
+
+  /* ============================= */
+  /* BODY SCROLL LOCK */
+  /* ============================= */
+  useEffect(() => {
+    if (mobileOpen) {
+      const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth
+
+      document.body.style.overflow = 'hidden'
+      document.body.style.paddingRight = `${scrollBarWidth}px`
+    } else {
+      document.body.style.overflow = ''
+      document.body.style.paddingRight = ''
+    }
+
+    return () => {
+      document.body.style.overflow = ''
+      document.body.style.paddingRight = ''
+    }
+  }, [mobileOpen])
 
   return (
-    <header className="w-full bg-[] border-b border-black/5 relative z-50">
+    <header className="w-full border-b border-black/5 relative z-50">
+      {/* ============================= */}
       {/* TOP BAR */}
+      {/* ============================= */}
       <div className="max-w-[1440px] mx-auto px-5 md:px-12 lg:px-24 py-5 flex items-center justify-between">
-        {/* LEFT CLUSTER */}
+        {/* LEFT */}
         <div className="flex items-center gap-8">
-          {/* LOGO */}
           <Link href="/">
             <img
               src="/images/logo/shopos-logo.png"
               alt="ShopOS"
-              style={{
-                width: '119.95px',
-                height: '28px',
-              }}
+              style={{ width: '119.95px', height: '28px' }}
             />
           </Link>
 
           {/* DESKTOP NAV */}
-          <nav className="hidden md:flex items-center gap-3">
-            {menuItems.map(item => (
-              <a
-                key={item}
-                className="transition-opacity"
-                style={{
-                  fontFamily: 'Inter',
-                  fontWeight: 400,
-                  fontSize: '12px',
-                  lineHeight: '18px',
-                  padding: '4px 6px',
-                  color: '#525252',
-                  cursor: 'pointer',
-                }}
-                onMouseEnter={e => (e.currentTarget.style.opacity = '0.8')}
-                onMouseLeave={e => (e.currentTarget.style.opacity = '1')}
+          <nav className="hidden md:flex items-center gap-6 relative">
+            {/* PRODUCTS */}
+            <div
+              className="relative"
+              onMouseEnter={() => setDesktopOpen(true)}
+              onMouseLeave={() => setDesktopOpen(false)}
+            >
+              <span className="cursor-pointer text-[12px] text-[#525252] pb-6">Products</span>
+
+              {desktopOpen && <div className="absolute left-0 top-[28px] h-6 w-full" />}
+
+              <div
+                className={`absolute left-0 top-[40px] w-[820px] transition-all duration-300 ${
+                  desktopOpen
+                    ? 'opacity-100 translate-y-0 pointer-events-auto'
+                    : 'opacity-0 translate-y-2 pointer-events-none'
+                }`}
               >
-                {item}
-              </a>
-            ))}
+                <div className="bg-white rounded-[12px] shadow-[0_30px_80px_rgba(0,0,0,0.15)] p-[20px] grid grid-cols-2 gap-x-[20px] gap-y-[12px]">
+                  <DropdownItem
+                    title="Use Cases"
+                    desc="Built for every brand"
+                    icon="/images/navbar/usecases.svg"
+                    href="/use-cases"
+                  />
+                  <DropdownItem
+                    title="Loops"
+                    desc="Performance improves itself"
+                    icon="/images/navbar/loops.svg"
+                    href="/loops"
+                  />
+                  <DropdownItem
+                    title="Spaces"
+                    desc="Workflows trained for ecommerce"
+                    icon="/images/navbar/spaces.svg"
+                    href="/spaces"
+                  />
+                  <DropdownItem
+                    title="Files"
+                    desc="A library of proven winners"
+                    icon="/images/navbar/files.svg"
+                    href="/files"
+                  />
+                  <DropdownItem
+                    title="Refine"
+                    desc="Human edits train intelligence"
+                    icon="/images/navbar/refine.svg"
+                    href="/refine"
+                  />
+                  <DropdownItem
+                    title="Cowork"
+                    desc="Your AI commerce operator"
+                    icon="/images/navbar/cowork.svg"
+                    href="/cowork"
+                  />
+                  <DropdownItem
+                    title="Brand Memory"
+                    desc="Brand rules, always remembered"
+                    icon="/images/navbar/memory.svg"
+                    href="/brand-memory"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <Link href="/case-studies" className="text-[12px] text-[#525252]">
+              Case Studies
+            </Link>
+            <Link href="/resources" className="text-[12px] text-[#525252]">
+              Resources
+            </Link>
+            <Link href="/pricing" className="text-[12px] text-[#525252]">
+              Pricing
+            </Link>
           </nav>
         </div>
 
-        {/* RIGHT SIDE */}
+        {/* RIGHT */}
         <div className="flex items-center">
-          {/* DESKTOP DOWNLOAD */}
+          {/* DESKTOP CTA */}
           <div className="hidden md:block">
-            <button
-              className="flex items-center gap-2 transition-opacity"
-              style={{
-                backgroundColor: '#0A0A0A',
-                color: '#FFFFFF',
-                padding: '10px 20px',
-                borderRadius: '999px',
-                fontFamily: 'Inter',
-                fontWeight: 500,
-                fontSize: '14px',
-                lineHeight: '22px',
-              }}
-              onMouseEnter={e => (e.currentTarget.style.opacity = '0.85')}
-              onMouseLeave={e => (e.currentTarget.style.opacity = '1')}
-            >
+            <button className="flex items-center gap-2 bg-black text-white px-5 py-2 rounded-full text-[14px] font-medium">
               Get Early Access
-              <svg
-                width="13"
-                height="12"
-                viewBox="0 0 13 12"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M6.53223 0.275345C6.93218 -0.105157 7.56553 -0.0892913 7.94629 0.310501L12.3906 4.97652C12.7583 5.36261 12.7581 5.97018 12.3906 6.3564L7.94629 11.0234C7.56538 11.4231 6.93207 11.4384 6.53223 11.0576C6.1324 10.6767 6.11719 10.0434 6.49805 9.64351L9.33301 6.66695H1C0.447824 6.66695 0.000176227 6.21908 0 5.66695C0.000175956 5.11481 0.447824 4.66695 1 4.66695H9.33398L6.49805 1.68941C6.11729 1.28947 6.13234 0.656189 6.53223 0.275345Z"
-                  fill="#FAFAFA"
-                />
-              </svg>
             </button>
           </div>
 
-          {/* MOBILE HAMBURGER */}
-          <button className="md:hidden ml-4" onClick={() => setOpen(!open)}>
-            {open ? (
+          {/* MOBILE TOGGLE */}
+          <button className="md:hidden ml-4" onClick={() => setMobileOpen(!mobileOpen)}>
+            {mobileOpen ? (
               <span style={{ fontSize: '24px' }}>✕</span>
             ) : (
               <span style={{ fontSize: '24px' }}>☰</span>
@@ -96,46 +173,111 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* MOBILE FULLSCREEN MENU */}
-      {/* MOBILE FULLSCREEN MENU */}
+      {/* ============================= */}
+      {/* MOBILE MENU */}
+      {/* ============================= */}
       <div
-        className={`fixed left-0 right-0 bottom-0 top-[72px] bg-[#F6F6F6] transition-transform duration-300 ease-in-out ${
-          open ? 'translate-x-0' : 'translate-x-full'
-        } md:hidden z-40`}
+        className={`fixed inset-0 top-[72px] bg-[#F6F6F6] transition-transform duration-300 ${
+          mobileOpen ? 'translate-x-0' : 'translate-x-full'
+        } md:hidden z-40 overflow-y-auto`}
       >
-        <div className="pt-12 px-6">
-          <div className="flex flex-col gap-8 text-left">
-            {menuItems.map(item => (
-              <a
-                key={item}
-                className="transition-opacity"
-                style={{
-                  fontFamily: 'Inter',
-                  fontWeight: 400,
-                  fontSize: '20px',
-                  lineHeight: '30px',
-                  color: '#525252',
-                }}
-                onClick={() => setOpen(false)}
-              >
-                {item}
-              </a>
-            ))}
-
+        <div className="pt-12 px-6 flex flex-col gap-6 pb-16">
+          {/* PRODUCTS ACCORDION */}
+          <div>
             <button
-              className="mt-10 w-full"
-              style={{
-                backgroundColor: '#0A0A0A',
-                color: '#FFFFFF',
-                padding: '16px 20px',
-                borderRadius: '999px',
-                fontFamily: 'Inter',
-                fontSize: '16px',
-              }}
+              onClick={() => setMobileProductsOpen(!mobileProductsOpen)}
+              className="w-full flex justify-between items-center text-[20px] text-[#525252]"
             >
-              Get Early Access
+              Products
+              <span>{mobileProductsOpen ? '−' : '+'}</span>
             </button>
+
+            <div
+              className={`overflow-hidden transition-all duration-300 ${
+                mobileProductsOpen ? 'max-h-[900px] mt-4' : 'max-h-0'
+              }`}
+            >
+              <div className="flex flex-col gap-4">
+                <DropdownItem
+                  title="Use Cases"
+                  desc="Built for every brand"
+                  icon="/images/navbar/usecases.svg"
+                  href="/use-cases"
+                  onClick={() => setMobileOpen(false)}
+                />
+                <DropdownItem
+                  title="Loops"
+                  desc="Performance improves itself"
+                  icon="/images/navbar/loops.svg"
+                  href="/loops"
+                  onClick={() => setMobileOpen(false)}
+                />
+                <DropdownItem
+                  title="Spaces"
+                  desc="Workflows trained for ecommerce"
+                  icon="/images/navbar/spaces.svg"
+                  href="/spaces"
+                  onClick={() => setMobileOpen(false)}
+                />
+                <DropdownItem
+                  title="Files"
+                  desc="A library of proven winners"
+                  icon="/images/navbar/files.svg"
+                  href="/files"
+                  onClick={() => setMobileOpen(false)}
+                />
+                <DropdownItem
+                  title="Refine"
+                  desc="Human edits train intelligence"
+                  icon="/images/navbar/refine.svg"
+                  href="/refine"
+                  onClick={() => setMobileOpen(false)}
+                />
+                <DropdownItem
+                  title="Cowork"
+                  desc="Your AI commerce operator"
+                  icon="/images/navbar/cowork.svg"
+                  href="/cowork"
+                  onClick={() => setMobileOpen(false)}
+                />
+                <DropdownItem
+                  title="Brand Memory"
+                  desc="Brand rules, always remembered"
+                  icon="/images/navbar/memory.svg"
+                  href="/brand-memory"
+                  onClick={() => setMobileOpen(false)}
+                />
+              </div>
+            </div>
           </div>
+
+          <Link
+            href="/case-studies"
+            onClick={() => setMobileOpen(false)}
+            className="text-[20px] text-[#525252]"
+          >
+            Case Studies
+          </Link>
+
+          <Link
+            href="/resources"
+            onClick={() => setMobileOpen(false)}
+            className="text-[20px] text-[#525252]"
+          >
+            Resources
+          </Link>
+
+          <Link
+            href="/pricing"
+            onClick={() => setMobileOpen(false)}
+            className="text-[20px] text-[#525252]"
+          >
+            Pricing
+          </Link>
+
+          <button className="mt-8 w-full bg-black text-white py-4 rounded-full text-[16px] font-medium">
+            Get Early Access
+          </button>
         </div>
       </div>
     </header>
