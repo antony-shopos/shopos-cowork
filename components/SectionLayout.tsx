@@ -2,13 +2,15 @@ export default function SectionLayout({
   children,
   className = "",
   borderClass = "border-[#D4D4D4]",
+  scrollX = false,
 }: {
   children: React.ReactNode
   className?: string
   borderClass?: string
+  scrollX?: boolean
 }) {
   return (
-    <section className={`overflow-hidden ${className}`}>
+    <section className={`${className}`}>
       <div className="max-w-[1460px] mx-auto w-full">
         <div
           className="
@@ -19,7 +21,11 @@ export default function SectionLayout({
           "
         >
           <div />
-          <div className={`border-l border-r border-dashed ${borderClass}`}>
+          <div
+            className={`border-l border-r border-dashed ${borderClass} ${
+              scrollX ? 'overflow-x-scroll' : ''
+            }`}
+          >
             {children}
           </div>
           <div />

@@ -103,7 +103,7 @@ export default function ShoposBrandMemoryHero() {
         </div>
       </div>
       {/* Bottom dashed line aligned to layout */}
-      <div className="border-b border-dashed border-[#D4D4D4]" />
+      <div className="relative left-1/2 right-1/2 -mx-[50vw] w-screen border-t border-dashed border-[#E5E5E5]" />
     </SectionLayout>
   )
 }

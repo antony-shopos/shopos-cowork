@@ -47,12 +47,21 @@ html {
 }
 
 body {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family:
+    'Inter',
+    system-ui,
+    -apple-system,
+    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: 'Space Grotesk', system-ui, sans-serif;
 }
 
@@ -70,7 +79,6 @@ h1, h2, h3, h4, h5, h6 {
     animation-delay: 400ms;
   }
 }
-
 
 @keyframes tickerUp {
   from {

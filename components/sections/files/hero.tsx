@@ -18,10 +18,10 @@ export default function ShoposFilesHero() {
           <h1
             style={{
               fontFamily: 'Space Grotesk',
+              fontSize: 'clamp(36px,5vw,60px)',
               fontWeight: 500,
-              fontSize: 'clamp(36px,5vw,52px)',
               letterSpacing: '-0.02em',
-              lineHeight: '110%',
+              lineHeight: '120%',
               color: '#0A0A0A',
               marginBottom: '8px',
             }}
