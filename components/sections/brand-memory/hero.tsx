@@ -66,14 +66,11 @@ export default function ShoposBrandMemoryHero() {
                 className="w-[24px] h-[24px] object-contain"
               />
             </div>
-            <h3 className="font-semibold text-[#0A0A0A] mb-3">Visual Identity</h3>
-            <ul className="list-disc pl-5 text-[#525252] text-[14px] leading-[22px] space-y-1">
-              <li>Brand colors (primary, secondary, accent)</li>
-              <li>Typography preferences</li>
-              <li>Logo placement rules</li>
-              <li>Photography style (minimal, editorial, lifestyle, studio)</li>
-              <li>Lighting direction (natural, studio, warm, cool)</li>
-            </ul>
+            <h3 className="font-semibold text-[#0A0A0A] mb-3">Upload</h3>
+            <p className="text-[#525252] text-[14px] leading-[22px]">
+              Complete onboarding in 15 minutes. Essentials walks through 6 spaces from logos to
+              photography style.
+            </p>
           </div>
 
           {/* Card 2 */}
@@ -85,13 +82,11 @@ export default function ShoposBrandMemoryHero() {
                 className="w-[24px] h-[24px] object-contain"
               />
             </div>
-            <h3 className="font-semibold text-[#0A0A0A] mb-3">Model Preferences</h3>
-            <ul className="list-disc pl-5 text-[#525252] text-[14px] leading-[22px] space-y-1">
-              <li>Preferred body types, age ranges, skin tones</li>
-              <li>Default poses and expressions</li>
-              <li>Styling direction</li>
-              <li>Hair and makeup guidelines</li>
-            </ul>
+            <h3 className="font-semibold text-[#0A0A0A] mb-3">Reference</h3>
+            <p className="text-[#525252] text-[14px] leading-[22px]">
+              Every output checks Memory first. Creating a photo? Memory provides approved colors
+              and logo rules.
+            </p>
           </div>
 
           {/* Card 3 */}
@@ -103,50 +98,11 @@ export default function ShoposBrandMemoryHero() {
                 className="w-[24px] h-[27.5px] object-contain"
               />
             </div>
-            <h3 className="font-semibold text-[#0A0A0A] mb-3">Scenes & Settings</h3>
-            <ul className="list-disc pl-5 text-[#525252] text-[14px] leading-[22px] space-y-1">
-              <li>Background preferences by product category</li>
-              <li>Recurring environments (coffee shop, gym, office, beach)</li>
-              <li>Seasonal scene variations</li>
-              <li>Prop preferences</li>
-            </ul>
-          </div>
-
-          {/* Card 4 */}
-          <div className="bg-[#FFFFFF] rounded-2xl p-6">
-            <div className="w-10 h-10 mb-6 bg-white border border-black/10 rounded-xl flex items-center justify-center">
-              <img
-                src="/images/shopos-web/shopifysync.png"
-                alt="Shopify sync"
-                className="w-[24px] h-[27.5px] object-contain"
-              />
-            </div>
-            <h3 className="font-semibold text-[#0A0A0A] mb-3">Brand Voice</h3>
-            <ul className="list-disc pl-5 text-[#525252] text-[14px] leading-[22px] space-y-1">
-              <li>Tone (casual, professional, playful, luxury)</li>
-              <li>Sentence structure preferences</li>
-              <li>Words to use, words to avoid</li>
-              <li>CTA patterns</li>
-              <li>Product naming conventions</li>
-            </ul>
-          </div>
-
-          {/* Card 5 */}
-          <div className="bg-[#FFFFFF] rounded-2xl p-6">
-            <div className="w-10 h-10 mb-6 bg-white border border-black/10 rounded-xl flex items-center justify-center">
-              <img
-                src="/images/shopos-web/shopifysync.png"
-                alt="Shopify sync"
-                className="w-[24px] h-[27.5px] object-contain"
-              />
-            </div>
-            <h3 className="font-semibold text-[#0A0A0A] mb-3">Compliance Rules</h3>
-            <ul className="list-disc pl-5 text-[#525252] text-[14px] leading-[22px] space-y-1">
-              <li>Category-specific restrictions</li>
-              <li>Marketplace-specific requirements</li>
-              <li>Legal disclaimers</li>
-              <li>Claim substantiation rules</li>
-            </ul>
+            <h3 className="font-semibold text-[#0A0A0A] mb-3">Update</h3>
+            <p className="text-[#525252] text-[14px] leading-[22px]">
+              Single source of truth. Rebrand happening? Update once, and every future output
+              follows suit.
+            </p>
           </div>
         </div>
       </div>

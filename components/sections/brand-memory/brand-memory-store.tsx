@@ -28,52 +28,67 @@ export default function BrandMemoryStore() {
           {/* Card 1 */}
           <div className="bg-white rounded-3xl p-5">
             <h3 className="text-[#0A0A0A] font-semibold mb-4 text-[18px]">
-              Visual Assets
+             Visual Identity
             </h3>
             <ul className="space-y-2 text-[#262626] text-[15px]">
-              <li>Logo variations</li>
-              <li>Color palette (Hex/RGB)</li>
-              <li>Typography weights</li>
-              <li>Photography composition</li>
+              <li>Brand colors (primary, secondary, accent)</li>
+              <li>Typography preferences</li>
+              <li>Logo placement rules</li>
+              <li>Photography style (minimal, editorial, lifestyle, studio)</li>
+              <li>Lighting direction (natural, studio, warm, cool)</li>
             </ul>
           </div>
 
           {/* Card 2 */}
           <div className="bg-white rounded-3xl p-5">
             <h3 className="text-[#0A0A0A] font-semibold mb-4 text-[18px]">
-              Written Guidelines
+              Model Preferences
             </h3>
             <ul className="space-y-2 text-[#262626] text-[15px]">
-              <li>Voice & Tone</li>
-              <li>Messaging Pillars</li>
-              <li>Value Props</li>
-              <li>Compliance Rules</li>
+              <li>Preferred body types, age ranges, skin tones</li>
+              <li>Default poses and expressions</li>
+              <li>Styling direction</li>
+              <li>Hair and makeup guidelines</li>
             </ul>
           </div>
 
           {/* Card 3 */}
           <div className="bg-white rounded-3xl p-5">
             <h3 className="text-[#0A0A0A] font-semibold mb-4 text-[18px]">
-              Technical Specs
+              Scenes & Settings
             </h3>
             <ul className="space-y-2 text-[#262626] text-[15px]">
-              <li>Image Dimensions</li>
-              <li>Preferred Formats</li>
-              <li>Naming Conventions</li>
-              <li>Versioning</li>
+              <li>Background preferences by product category</li>
+              <li>Recurring environments (coffee shop, gym, office, beach)</li>
+              <li>Seasonal scene variations</li>
+              <li>Prop preferences</li>
             </ul>
           </div>
 
           {/* Card 4 */}
           <div className="bg-white rounded-3xl p-5">
             <h3 className="text-[#0A0A0A] font-semibold mb-4 text-[18px]">
-              Benefits
+              Brand Voice
             </h3>
             <ul className="space-y-2 text-[#262626] text-[15px]">
-              <li>Scale: 1 person = 5</li>
-              <li>100% Consistency</li>
-              <li>Legal Guardrails</li>
-              <li>Zero Re-briefing</li>
+              <li>Tone (casual, professional, playful, luxury)</li>
+              <li>Sentence structure preferences</li>
+              <li>Words to use, words to avoid</li>
+              <li>CTA patterns</li>
+              <li>Product naming conventions</li>
+            </ul>
+          </div>
+
+          {/* Card 5 */}
+          <div className="bg-white rounded-3xl p-5">
+            <h3 className="text-[#0A0A0A] font-semibold mb-4 text-[18px]">
+              Compliance Rules
+            </h3>
+            <ul className="space-y-2 text-[#262626] text-[15px]">
+              <li>Category-specific restrictions</li>
+              <li>Marketplace-specific requirements</li>
+              <li>Legal disclaimers</li>
+              <li>Claim substantiation rules</li>
             </ul>
           </div>
 
