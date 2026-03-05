@@ -96,7 +96,9 @@ export default function Footer() {
                     <h4 className="text-[#262626] font-medium mb-4">Resources</h4>
                     <ul className="space-y-3 text-[14px] text-[#525252]">
                       <li>Context Graph</li>
-                      <li>D2C Brand Fund</li>
+                      <li><Link href="/resources/d2c-brand" className="hover:opacity-70 transition">
+                          D2C Brand Fund
+                        </Link></li>
                       <li>
                         <Link href="/about-us" className="hover:opacity-70 transition">
                           About Us
